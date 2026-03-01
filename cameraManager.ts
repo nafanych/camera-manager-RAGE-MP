@@ -5,6 +5,15 @@ interface AnimateData {
     duration: number;
 }
 
+interface CameraAnimationData {
+    startPos: Vector3;
+    startRot: number[];
+    endPos: Vector3;
+    endRot: number[];
+    duration: number;
+    startTime: number;
+};
+
 class Camera {
     protected camera: CameraMp | null = null;
 
@@ -40,14 +49,7 @@ class Camera {
 class CameraAnimation extends Camera {
 
     private renderEvent: ((dt: number) => void) | null = null;
-    private animationData: {
-        startPos: Vector3;
-        startRot: number[];
-        endPos: Vector3;
-        endRot: number[];
-        duration: number;
-        startTime: number;
-    } | null = null;
+    private animationData: CameraAnimationData | null = null;
 
     public goAnimate(_data: AnimateData): void {
         if (!this.camera || !mp.cameras.exists(this.camera)) return;
