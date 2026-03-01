@@ -122,12 +122,8 @@ class CameraAnimation extends Camera {
         this.animationData = null;
     };
 
-    public checkIsAnimate(): void {
-        this.stopAnimation();
-    };
-
     public destroy(): void {
-        this.checkIsAnimate();
+        this.stopAnimation();
         super.destroy();
     };
 
@@ -148,7 +144,7 @@ class CameraAnimation extends Camera {
 // using
 const animation: AnimateData = {
     "position": [400, 500, 200],
-    "rotParams": [0, 0, 0],
+    "rotParams": [0, 0, 0, 0],
     "duration": 1500
 };
 
