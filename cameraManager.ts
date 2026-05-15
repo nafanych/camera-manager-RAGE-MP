@@ -141,18 +141,3 @@ class CameraAnimation extends Camera {
         return t < 0.5 ? 2 * t * t : 1 - Math.pow(-2 * t + 2, 2) / 2;
     };
 }
-
-
-// using
-const animation: AnimateData = {
-    "position": [400, 500, 200],
-    "rotParams": [0, 0, 0, 0],
-    "duration": 1500
-};
-
-const camera: CameraAnimation = new CameraAnimation();
-
-camera.create(new mp.Vector3(100, 200, 300), [0, 0, 0, 0], 60); // create camera
-camera.goAnimate(animation); // animate camera
-camera.setPos(new mp.Vector3(100, 200, 300), [0, 0, 0, 0]); // set new position camera
-camera.destroy(); // delete camera
